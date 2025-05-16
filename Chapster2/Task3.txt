@@ -1,0 +1,18 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 1. Генерация данных
+data = {
+    "Зарплата": np.random.randint(30, 150, 100),
+    "Опыт": np.random.randint(1, 20, 100),
+    "Возраст": np.random.randint(20, 60, 100)
+}
+df = pd.DataFrame(data)
+
+# 2. Тепловая карта
+corr = df.corr()
+sns.heatmap(corr, annot=True, cmap="coolwarm")
+plt.title("Корреляция признаков")
+plt.show()
