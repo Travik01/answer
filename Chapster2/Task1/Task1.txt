@@ -1,0 +1,13 @@
+import os
+import json
+#Создаем папку data
+if not os.path.exists("data"):
+    os.makedirs("data")
+#Записываем данные в JSON
+data = {"text": "Пример текста для NLP", "label": 1}
+with open("data/secrets.json", "w", encoding="utf-8") as f:
+    json.dump(data, f, ensure_ascii=False)
+#Читаем и выводим содержимое
+with open("data/secrets.json", "r", encoding="utf-8") as f:
+    loaded_data = json.load(f)
+print(loaded_data)
